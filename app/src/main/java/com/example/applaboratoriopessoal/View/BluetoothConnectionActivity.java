@@ -8,6 +8,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.Model.Dados;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class BluetoothConnectionActivity {
+    private BluetoothListener bluetoothListener;
     private static final String TAG = "BluetoothConnection";
     private static final String appName = "LABORATORIO PESSOAL";
     private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -28,12 +30,12 @@ public class BluetoothConnectionActivity {
     private UUID deviceUUID;
     ProgressDialog mProgressDialog;
     private ConnectedThread mConnectedThread;
-    static String incomingMessage;
-    private String teste2;
+    private String incomingMessage;
 
-    public BluetoothConnectionActivity(Context mContext) {
+    public BluetoothConnectionActivity(Context mContext, BluetoothListener bluetoothListener) {
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         this.mContext = mContext;
+        this.bluetoothListener = bluetoothListener;
         start();
     }
 
@@ -196,6 +198,7 @@ public class BluetoothConnectionActivity {
                 try{
                     bytes = mInputStream.read(buffer);
                     incomingMessage = new String(buffer, 0, bytes);
+                    bluetoothListener.setTextOnTextView(incomingMessage);
                     Log.d(TAG, "InputStream " + incomingMessage);
                 } catch (IOException e) {
                     Log.e(TAG, "read: error reading InputStream " + e.getMessage());

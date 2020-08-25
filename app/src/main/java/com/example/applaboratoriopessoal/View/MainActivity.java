@@ -19,16 +19,19 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.Model.DeviceListAdapter;
 import com.example.applaboratoriopessoal.R;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, BluetoothListener {
     private static final String TAG = "MainActivity";
     BluetoothAdapter mBluetoothAdapter;
     BluetoothConnectionActivity mBluetoothConnection;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public DeviceListAdapter mDeviceListAdapter;
     Button btnEnviar;
     EditText editText;
+    TextView textViewRecebe;
     private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     BluetoothDevice mBTDevice;
     ListView lvNewDevices;
@@ -151,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mBTDevices = new ArrayList<>();
         btnEnviar = (Button)findViewById(R.id.btnEnviar);
         editText = (EditText)findViewById(R.id.editText);
+        textViewRecebe = (TextView)findViewById(R.id.textViewRecebe);
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         registerReceiver(mBroadcastReceiver4, filter);
@@ -177,8 +182,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void iniciaConexaoBluetooth(BluetoothDevice device, UUID uuid){
         Log.d(TAG, "iniciaConexaoBluetooth: Iniciando conexão BLuetooth RFCOM");
         mBluetoothConnection.startClient(device, uuid);
-        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-        startActivityForResult(intent, 1);
+        /*Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+        startActivityForResult(intent, 1);*/
     }
 
     private void dialogoBluetooth(){
@@ -283,7 +288,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Log.d(TAG, "Trying to pair with " + deviceName);
             mBTDevices.get(i).createBond();
             mBTDevice = mBTDevices.get(i);
-            mBluetoothConnection = new BluetoothConnectionActivity(MainActivity.this);
+            mBluetoothConnection = new BluetoothConnectionActivity(MainActivity.this, this);
         }
     }
 
@@ -293,5 +298,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if ((requestCode == 1) && (resultCode == MenuActivity.RESULT_OK)) {
             Toast.makeText(MainActivity.this, "Retornou do Menu.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void setTextOnTextView(String textoInserido) {
+        //textViewRecebe.setText(textoInserido);
+        final String text = textoInserido;
+        Log.d(TAG, "TEXTO: " + textoInserido);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textViewRecebe.setText(text);
+            }
+        });
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
