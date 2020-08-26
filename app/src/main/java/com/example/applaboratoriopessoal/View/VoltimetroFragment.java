@@ -1,12 +1,16 @@
 package com.example.applaboratoriopessoal.View;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.R;
 
@@ -37,14 +41,21 @@ public class VoltimetroFragment extends Fragment implements BluetoothListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_voltimetro, container, false);
-        textViewMostraTensaoFragment = (TextView)rootView.findViewById(R.id.textViewMostraTensaoFragment);
+        rootView = inflater.inflate(R.layout.fragment_voltimetro, container, false);
+        textViewMostraTensaoFragment = (TextView) rootView.findViewById(R.id.textViewMostraTensaoFragment);
         return rootView;
     }
 
     @Override
     public void setTextOnTextView(String textoInserido) {
         Log.d("VoltimetroFragment", textoInserido);
-        textViewMostraTensaoFragment.setText(textoInserido + " V");
+        final String texttoInseridoVoltimetro = textoInserido;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textViewMostraTensaoFragment.setText(texttoInseridoVoltimetro);
+            }
+        });
+
     }
 }
