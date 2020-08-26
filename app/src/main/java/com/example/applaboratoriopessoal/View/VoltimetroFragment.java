@@ -45,6 +45,6 @@ public class VoltimetroFragment extends Fragment implements BluetoothListener {
     @Override
     public void setTextOnTextView(String textoInserido) {
         Log.d("VoltimetroFragment", textoInserido);
-        textViewMostraTensaoFragment.setText(textoInserido);
+        textViewMostraTensaoFragment.setText(textoInserido + " V");
     }
 }

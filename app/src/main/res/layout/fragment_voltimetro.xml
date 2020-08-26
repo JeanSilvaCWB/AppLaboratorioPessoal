@@ -6,12 +6,20 @@
     tools:context=".View.VoltimetroFragment"
     tools:visibility="visible">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center|center_vertical"
         android:textColor="@android:color/black"
         android:textSize="65sp"
         android:text=""
         android:id="@+id/textViewMostraTensaoFragment"/>
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
+        android:layout_marginTop="150dp"
+        android:text="Voltar" />
 </FrameLayout>

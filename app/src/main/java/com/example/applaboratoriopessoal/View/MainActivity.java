@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mBluetoothConnection.startClient(device, uuid);
         constraintLayout.setVisibility(View.GONE);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, ConfiguraFonteAlimentacaoFragment.newInstance(mBluetoothConnection))
+                .add(R.id.fragment_container, VoltimetroFragment.newInstance(mBluetoothConnection))
                 .commit();
     }
 
