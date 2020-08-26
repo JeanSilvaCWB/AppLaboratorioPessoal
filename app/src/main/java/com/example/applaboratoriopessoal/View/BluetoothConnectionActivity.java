@@ -39,6 +39,10 @@ public class BluetoothConnectionActivity {
         start();
     }
 
+    public void setBluetoothListener(BluetoothListener bluetoothListener){
+        this.bluetoothListener = bluetoothListener;
+    }
+
     /*Esta thread executa enquanto ouve as conexões recebidas. Funciona como um
     server-side client. É executada até o momento que uma conexão é aceita (ou cancelada).*/
     private class AcceptThread extends Thread {

@@ -14,6 +14,7 @@ import com.example.applaboratoriopessoal.R;
 public class VoltimetroActivity extends AppCompatActivity implements BluetoothListener {
     private static final String TAG = "VoltimetroActivity";
     TextView textViewValorTensaoVoltimetro;
+    BluetoothConnectionActivity mBluetoothConnection;
     String teste;
 
     @Override
@@ -21,6 +22,8 @@ public class VoltimetroActivity extends AppCompatActivity implements BluetoothLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voltimetro);
         textViewValorTensaoVoltimetro = (TextView)findViewById(R.id.textViewValorTensaoVoltimetro);
+
+        mBluetoothConnection = new BluetoothConnectionActivity(VoltimetroActivity.this, this);
         //mostraValorTensao();
     }
 
@@ -32,7 +35,6 @@ public class VoltimetroActivity extends AppCompatActivity implements BluetoothLi
     public void btnVoltar(View view) {
         Intent returnIntent = new Intent();
         setResult(VoltimetroActivity.RESULT_OK,returnIntent);
-        finish();
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.example.applaboratoriopessoal.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     BluetoothDevice mBTDevice;
     ListView lvNewDevices;
+    ConstraintLayout constraintLayout;
 
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         @Override
@@ -151,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        constraintLayout = (ConstraintLayout)findViewById(R.id.constraintLayout);
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
         mBTDevices = new ArrayList<>();
         btnEnviar = (Button)findViewById(R.id.btnEnviar);
@@ -182,8 +186,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void iniciaConexaoBluetooth(BluetoothDevice device, UUID uuid){
         Log.d(TAG, "iniciaConexaoBluetooth: Iniciando conexão BLuetooth RFCOM");
         mBluetoothConnection.startClient(device, uuid);
+        constraintLayout.setVisibility(View.GONE);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, VoltimetroFragment.newInstance(mBluetoothConnection))
+                .commit();
         /*Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivityForResult(intent, 1);*/
+    }
+
+    public void replaceFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 
     private void dialogoBluetooth(){
