@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -23,11 +22,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.Model.DeviceListAdapter;
 import com.example.applaboratoriopessoal.R;
-
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Random;
@@ -188,10 +185,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mBluetoothConnection.startClient(device, uuid);
         constraintLayout.setVisibility(View.GONE);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, VoltimetroFragment.newInstance(mBluetoothConnection))
+                .add(R.id.fragment_container, ConfiguraFonteAlimentacaoFragment.newInstance(mBluetoothConnection))
                 .commit();
-        /*Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-        startActivityForResult(intent, 1);*/
     }
 
     public void replaceFragment(Fragment fragment){
@@ -303,14 +298,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             mBTDevices.get(i).createBond();
             mBTDevice = mBTDevices.get(i);
             mBluetoothConnection = new BluetoothConnectionActivity(MainActivity.this, this);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intentRetornado) {
-        super.onActivityResult(requestCode, resultCode, intentRetornado);
-        if ((requestCode == 1) && (resultCode == MenuActivity.RESULT_OK)) {
-            Toast.makeText(MainActivity.this, "Retornou do Menu.", Toast.LENGTH_LONG).show();
         }
     }
 
