@@ -20,6 +20,8 @@ import static android.widget.Toast.LENGTH_LONG;
 
 public class MenuFragment extends Fragment implements BluetoothListener {
     BluetoothConnectionActivity bluetoothConnectionActivity;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
     private View rootView;
     Button btnConfigurarFonteAlimentacao;
     Button btnVoltimetro;
@@ -49,8 +51,33 @@ public class MenuFragment extends Fragment implements BluetoothListener {
         rootView = inflater.inflate(R.layout.fragment_menu, container, false);
         btnConfigurarFonteAlimentacao = (Button)rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
         btnVoltimetro = (Button)rootView.findViewById(R.id.btnVoltimetro);
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        btnConfigurarFonteAlimentacao.setOnClickListener(onClick);
+        btnVoltimetro.setOnClickListener(onClick);
         return rootView;
     }
+
+    private final View.OnClickListener onClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btnConfigurarFonteAlimentacao:
+                    fragmentTransaction.replace(R.id.fragment_container, ConfiguraFonteAlimentacaoFragment.newInstance(bluetoothConnectionActivity));
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    break;
+                case R.id.btnVoltimetro:
+                    fragmentTransaction.replace(R.id.fragment_container, VoltimetroFragment.newInstance(bluetoothConnectionActivity));
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     public void setTextOnTextView(String textoInserido) {
