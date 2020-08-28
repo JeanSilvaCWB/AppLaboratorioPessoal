@@ -25,6 +25,7 @@ public class MenuFragment extends Fragment implements BluetoothListener {
     private View rootView;
     Button btnConfigurarFonteAlimentacao;
     Button btnVoltimetro;
+    Button btnOsciloscopio;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -49,13 +50,15 @@ public class MenuFragment extends Fragment implements BluetoothListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_menu, container, false);
-        btnConfigurarFonteAlimentacao = (Button)rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
-        btnVoltimetro = (Button)rootView.findViewById(R.id.btnVoltimetro);
+        btnConfigurarFonteAlimentacao = (Button) rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
+        btnVoltimetro = (Button) rootView.findViewById(R.id.btnVoltimetro);
+        btnOsciloscopio = (Button) rootView.findViewById(R.id.btnOsciloscopio);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
         btnConfigurarFonteAlimentacao.setOnClickListener(onClick);
         btnVoltimetro.setOnClickListener(onClick);
+        btnOsciloscopio.setOnClickListener(onClick);
         return rootView;
     }
 
@@ -70,6 +73,11 @@ public class MenuFragment extends Fragment implements BluetoothListener {
                     break;
                 case R.id.btnVoltimetro:
                     fragmentTransaction.replace(R.id.fragment_container, VoltimetroFragment.newInstance(bluetoothConnectionActivity));
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    break;
+                case R.id.btnOsciloscopio:
+                    fragmentTransaction.replace(R.id.fragment_container, OsciloscopioFragment.newInstance(bluetoothConnectionActivity));
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
