@@ -20,25 +20,42 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp">
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="Laboratório Pessoal"
+                android:id="@+id/textoNomeApp"
                 android:layout_centerVertical="true"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/imagemApp">
 
             </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textoNomeApp"
+                android:fontFamily="@font/montserrat"
+                android:text="E  L  E  T  R  O  E  L  E  T  R  Ô  N  I  C  A"
+                android:textColor="#FFFFFF"
+                android:textSize="13.1sp"
+                android:layout_toRightOf="@+id/imagemApp">
+
+            </TextView>
+
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/imagemApp"
                 android:src="@drawable/configurafontealimentacao"/>
 
         </RelativeLayout>
@@ -55,10 +72,19 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/montserrat"
                 android:text="Configuração"
+                android:id="@+id/textoConfiguracao"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:gravity="center">
+
             </TextView>
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="2dp"
+                android:background="#05D36F"
+                android:layout_below="@+id/textoConfiguracao"
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 
