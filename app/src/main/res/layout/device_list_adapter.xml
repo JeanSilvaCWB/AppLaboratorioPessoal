@@ -8,13 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvDeviceName"
-        android:textSize="15sp"/>
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvDeviceAddress"
-        android:textSize="15sp"/>
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginBottom="5dp"/>
 
 
 </LinearLayout>

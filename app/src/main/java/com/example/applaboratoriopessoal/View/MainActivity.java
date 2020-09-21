@@ -36,13 +36,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     BluetoothConnectionActivity mBluetoothConnection;
     public ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
     public DeviceListAdapter mDeviceListAdapter;
-    Button btnEnviar;
-    EditText editText;
-    TextView textViewRecebe;
     private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     BluetoothDevice mBTDevice;
     ListView lvNewDevices;
     ConstraintLayout constraintLayout;
+    Button btnFindUnpairedDevices;
 
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         @Override
@@ -78,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 int mode = intent.getIntExtra(BluetoothAdapter.EXTRA_SCAN_MODE, BluetoothAdapter.ERROR);
                 switch (mode) {
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE:
+                        btnFindUnpairedDevices.setVisibility(View.VISIBLE); 
                         Log.d(TAG, "mBroadcastReceiver2: Discoverability Enabled");
                         break;
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE:
@@ -154,9 +153,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         constraintLayout = (ConstraintLayout)findViewById(R.id.constraintLayout);
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
         mBTDevices = new ArrayList<>();
-        btnEnviar = (Button)findViewById(R.id.btnEnviar);
-        editText = (EditText)findViewById(R.id.editText);
-        textViewRecebe = (TextView)findViewById(R.id.textViewRecebe);
+        btnFindUnpairedDevices = (Button)findViewById(R.id.btnFindUnpairedDevices);
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         registerReceiver(mBroadcastReceiver4, filter);
@@ -166,14 +163,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         lvNewDevices.setOnItemClickListener(MainActivity.this);
 
         dialogoBluetooth();
-
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                byte[] bytes = editText.getText().toString().getBytes(Charset.defaultCharset());
-                mBluetoothConnection.write(bytes);
-            }
-        });
     }
 
     public void iniciaConexao(){
@@ -250,6 +239,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void btnDiscover(View view) {
         Log.d(TAG, "BluetoothDiscover: Looking for unpaired devices");
+        btnFindUnpairedDevices.setVisibility(View.GONE);
+        lvNewDevices.setVisibility(View.VISIBLE); 
 
         if(mBluetoothAdapter.isDiscovering()){
             mBluetoothAdapter.cancelDiscovery();
@@ -309,7 +300,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                textViewRecebe.setText(text);
             }
         });
     }

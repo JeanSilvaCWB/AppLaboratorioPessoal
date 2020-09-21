@@ -2,6 +2,7 @@ package com.example.applaboratoriopessoal.View;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,9 +24,9 @@ public class MenuFragment extends Fragment implements BluetoothListener {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     private View rootView;
-    Button btnConfigurarFonteAlimentacao;
-    Button btnVoltimetro;
-    Button btnOsciloscopio;
+    CardView btnConfigurarFonteAlimentacao;
+    CardView btnVoltimetro;
+    CardView btnOsciloscopio;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -50,9 +51,9 @@ public class MenuFragment extends Fragment implements BluetoothListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_menu, container, false);
-        btnConfigurarFonteAlimentacao = (Button) rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
-        btnVoltimetro = (Button) rootView.findViewById(R.id.btnVoltimetro);
-        btnOsciloscopio = (Button) rootView.findViewById(R.id.btnOsciloscopio);
+        btnConfigurarFonteAlimentacao = (CardView) rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
+        btnVoltimetro = (CardView) rootView.findViewById(R.id.btnVoltimetro);
+        btnOsciloscopio = (CardView) rootView.findViewById(R.id.btnOsciloscopio);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
