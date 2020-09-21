@@ -14,6 +14,10 @@ import android.widget.TextView;
 
 import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.Viewport;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.nio.charset.Charset;
 
@@ -21,8 +25,10 @@ public class OsciloscopioFragment extends Fragment implements BluetoothListener 
     BluetoothConnectionActivity bluetoothConnectionActivity;
     FragmentManager fragmentManager;
     private View rootView;
+    private int lastX = 0;
     Button btnSalvar;
-    TextView textViewTeste;
+    GraphView graficoOsciloscopio;
+    LineGraphSeries<DataPoint> series;
 
     public OsciloscopioFragment() {
         // Required empty public constructor
@@ -48,9 +54,20 @@ public class OsciloscopioFragment extends Fragment implements BluetoothListener 
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_osciloscopio, container, false);
         btnSalvar = (Button)rootView.findViewById(R.id.btnSalvar);
-        textViewTeste = (TextView)rootView.findViewById(R.id.textViewTeste);
+        graficoOsciloscopio = (GraphView)rootView.findViewById(R.id.graficoOsciloscopio);
+        series = new LineGraphSeries<DataPoint>();
         fragmentManager = getFragmentManager();
 
+        series = new LineGraphSeries<DataPoint>();
+        graficoOsciloscopio.addSeries(series);
+        Viewport viewport = graficoOsciloscopio.getViewport();
+        viewport.setYAxisBoundsManual(true);
+        viewport.setMinY(-15);
+        viewport.setMaxY(15);
+        viewport.setXAxisBoundsManual(true);
+        viewport.setMinX(0);
+        viewport.setMaxX(100);
+        viewport.setScrollable(true);
         btnSalvar.setOnClickListener(onClick);
         return rootView;
     }
@@ -71,12 +88,13 @@ public class OsciloscopioFragment extends Fragment implements BluetoothListener 
     @Override
     public void setTextOnTextView(String textoInserido) {
         Log.d("OsciloscopioFragment", textoInserido);
-        final String textoInseridoOsciloscopio = textoInserido;
+        //final String textoInseridoOsciloscopio = textoInserido;
+        final Double numero = Double.parseDouble(textoInserido + ".00");
         if (getActivity() != null){
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    textViewTeste.setText(textoInseridoOsciloscopio);
+                    series.appendData(new DataPoint(lastX++, numero), true, 100);
                 }
             });
         }
