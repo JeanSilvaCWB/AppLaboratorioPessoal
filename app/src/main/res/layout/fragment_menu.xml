@@ -55,8 +55,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentLeft="true"
-                android:id="@+id/imagemApp"
-                android:src="@drawable/configurafontealimentacao"/>
+                android:id="@+id/imagemApp"/>
+                //android:src="@drawable/configurafontealimentacao"/>
 
         </RelativeLayout>
 
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="    Tensão    "
+                        android:text="      Tensão     "
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -149,16 +149,16 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/configurafontealimentacao"/>
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/configuracaogeradorfuncoes"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="Voltímetro"
+                        android:text="Gerador de\n   Funções"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -204,16 +204,50 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/configurafontealimentacao"/>
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/voltimetro"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="Osciloscópio"
+                        android:text="  Voltímetro  "
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ohmimetro"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Ohmímetro"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -240,7 +274,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/configurafontealimentacao"/>
+                        android:src="@drawable/osciloscopio"/>
 
                     <TextView
                         android:layout_width="wrap_content"
