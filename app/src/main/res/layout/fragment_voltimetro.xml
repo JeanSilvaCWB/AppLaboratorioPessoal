@@ -7,46 +7,70 @@
     tools:context=".View.VoltimetroFragment"
     tools:visibility="visible">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/myRectangleView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Voltímetro"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:textSize="25dp"
+        android:background="@drawable/rectangle"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/voltimetro2" />
 
         <TextView
             android:id="@+id/textViewMostraTensaoFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|center_vertical"
             android:text=""
             android:textColor="@android:color/black"
-            android:textSize="45dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="42dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUnidade"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUnidade"
+            app:layout_constraintHorizontal_bias="0.965"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnVoltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center"
-            android:text="Voltar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewMostraTensaoFragment" />
+            app:layout_constraintTop_toTopOf="@+id/textViewUnidade"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textViewUnidade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="108dp"
+            android:layout_marginRight="108dp"
             android:text="V"
             android:textColor="@android:color/black"
-            android:textSize="45dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewMostraTensaoFragment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.156"
-            app:layout_constraintStart_toEndOf="@+id/textViewMostraTensaoFragment"
-            app:layout_constraintTop_toTopOf="@+id/textViewMostraTensaoFragment" />
+            android:textSize="42dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.346" />
+
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="Voltar"
+            android:textSize="18dp"
+            android:background="@drawable/roundedbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.925" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

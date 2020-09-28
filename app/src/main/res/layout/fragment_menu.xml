@@ -33,8 +33,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:layout_toRightOf="@+id/imagemApp">
+                android:textStyle="bold">
 
             </TextView>
 
@@ -45,18 +44,9 @@
                 android:fontFamily="@font/montserrat"
                 android:text="E  L  E  T  R  O  E  L  E  T  R  Ô  N  I  C  A"
                 android:textColor="#FFFFFF"
-                android:textSize="13.1sp"
-                android:layout_toRightOf="@+id/imagemApp">
+                android:textSize="13.1sp">
 
             </TextView>
-
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentLeft="true"
-                android:id="@+id/imagemApp"/>
-                //android:src="@drawable/configurafontealimentacao"/>
 
         </RelativeLayout>
 
@@ -123,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="      Tensão     "
+                        android:text="     Tensão    "
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -136,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:id="@+id/btnVoltimetro"
+                android:id="@+id/btnGeradorFuncoes"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -168,15 +158,31 @@
 
         </GridLayout>
 
-        <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp">
+
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:id="@+id/textoLeitura"
             android:text="Leitura"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:gravity="center">
-        </TextView>
+            android:textSize="20sp"></TextView>
+
+            <View
+            android:layout_width="85dp"
+            android:layout_height="2dp"
+            android:background="#05D36F"
+            android:layout_below="@+id/textoLeitura"
+            android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
 
         <GridLayout
             android:layout_width="match_parent"
@@ -191,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:id="@+id/btnOsciloscopio"
+                android:id="@+id/btnVoltimetro"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -255,11 +261,22 @@
 
             </androidx.cardview.widget.CardView>
 
+            </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="1"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                android:id="@+id/btnOsciloscopio"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -289,7 +306,77 @@
 
             </androidx.cardview.widget.CardView>
 
-            </GridLayout>
+        </GridLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:id="@+id/resistencia"
+                android:text="Resistência"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"></TextView>
+
+            <View
+                android:layout_width="125dp"
+                android:layout_height="2dp"
+                android:background="#05D36F"
+                android:layout_below="@+id/resistencia"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="1"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/resistor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Descubra a resistência"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
 
     </LinearLayout>
 

@@ -76,7 +76,7 @@ public class VoltimetroFragment extends Fragment implements BluetoothListener {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    textViewMostraTensaoFragment.setText(textoInseridoVoltimetro);
+                    textViewMostraTensaoFragment.setText("+" + textoInseridoVoltimetro + ",20");
                 }
             });
         }

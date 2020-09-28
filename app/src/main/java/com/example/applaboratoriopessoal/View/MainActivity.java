@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView lvNewDevices;
     ConstraintLayout constraintLayout;
     Button btnFindUnpairedDevices;
+    TextView textViewDispositivosEncontrados;
+    TextView textViewDicaPareamento;
 
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         @Override
@@ -154,6 +156,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
         mBTDevices = new ArrayList<>();
         btnFindUnpairedDevices = (Button)findViewById(R.id.btnFindUnpairedDevices);
+        textViewDispositivosEncontrados = (TextView)findViewById(R.id.textViewDispositivosEncontrados);
+        textViewDicaPareamento = (TextView)findViewById(R.id.textViewDicaPareamento);
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         registerReceiver(mBroadcastReceiver4, filter);
@@ -228,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void mostraDispositivoBluetooth(){
-        Log.d(TAG, "BluetoothDiscoverability: making device discoverable for 300 seconds");
+        Log.d(TAG, "BluetoothDiscoverability: making device discoverable for 120 seconds");
         Intent discoverableIntent = new Intent (BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, true);
         startActivity(discoverableIntent);
@@ -240,7 +244,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void btnDiscover(View view) {
         Log.d(TAG, "BluetoothDiscover: Looking for unpaired devices");
         btnFindUnpairedDevices.setVisibility(View.GONE);
-        lvNewDevices.setVisibility(View.VISIBLE); 
+        lvNewDevices.setVisibility(View.VISIBLE);
+        textViewDispositivosEncontrados.setVisibility(View.VISIBLE);
+        textViewDicaPareamento.setVisibility(View.VISIBLE);
 
         if(mBluetoothAdapter.isDiscovering()){
             mBluetoothAdapter.cancelDiscovery();

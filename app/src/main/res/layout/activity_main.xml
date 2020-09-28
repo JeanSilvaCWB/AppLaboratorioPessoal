@@ -19,15 +19,17 @@
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:onClick="btnDiscover"
-            android:visibility="invisible"
             android:text=" Pressione para encontrar o dispositivo "
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499" />
 
         <ListView
-            android:backgroundTint="@android:color/black"
+            android:backgroundTint="@android:color/holo_green_light"
             android:id="@+id/lvNewDevices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,6 +42,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDispositivosEncontrados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Dispositivos encontrados próximos a você"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.203" />
+
+        <TextView
+            android:id="@+id/textViewDicaPareamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Clique no dispositivo ESP32 e aguarde a mensagem de pareamento"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/lvNewDevices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDispositivosEncontrados" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
