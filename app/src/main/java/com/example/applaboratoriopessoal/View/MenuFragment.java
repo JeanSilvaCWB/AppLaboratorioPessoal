@@ -27,6 +27,7 @@ public class MenuFragment extends Fragment implements BluetoothListener {
     CardView btnConfigurarFonteAlimentacao;
     CardView btnVoltimetro;
     CardView btnOsciloscopio;
+    CardView btnDescubraResistencia;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -54,12 +55,14 @@ public class MenuFragment extends Fragment implements BluetoothListener {
         btnConfigurarFonteAlimentacao = (CardView) rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
         btnVoltimetro = (CardView) rootView.findViewById(R.id.btnVoltimetro);
         btnOsciloscopio = (CardView) rootView.findViewById(R.id.btnOsciloscopio);
+        btnDescubraResistencia = (CardView) rootView.findViewById(R.id.btnDescubraResistencia);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
         btnConfigurarFonteAlimentacao.setOnClickListener(onClick);
         btnVoltimetro.setOnClickListener(onClick);
         btnOsciloscopio.setOnClickListener(onClick);
+        btnDescubraResistencia.setOnClickListener(onClick);
         return rootView;
     }
 
@@ -79,6 +82,11 @@ public class MenuFragment extends Fragment implements BluetoothListener {
                     break;
                 case R.id.btnOsciloscopio:
                     fragmentTransaction.replace(R.id.fragment_container, OsciloscopioFragment.newInstance(bluetoothConnectionActivity));
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    break;
+                case R.id.btnDescubraResistencia:
+                    fragmentTransaction.replace(R.id.fragment_container, DescubraResistenciaFragment.newInstance());
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
