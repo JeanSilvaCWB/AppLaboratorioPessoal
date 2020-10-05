@@ -318,7 +318,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     }
                     break;
                 case R.id.btnVoltar:
-                    //fragmentManager.popBackStack();
+                    fragmentManager.popBackStack();
                     break;
                 default:
                     break;

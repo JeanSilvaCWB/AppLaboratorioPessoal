@@ -7,7 +7,7 @@
     tools:context=".View.DescubraResistenciaFragment">
 
     <TextView
-        android:id="@+id/myRectangleView"
+        android:id="@+id/myRectangleView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
@@ -15,7 +15,18 @@
         android:gravity="center_horizontal"
         android:text="Descubra a resistência"
         android:textColor="@android:color/black"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/myRectangleView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voltímetro"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:background="@drawable/rectangle"/>
 
     <FrameLayout
         android:layout_width="350sp"
@@ -39,22 +50,22 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnPreto1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/preto"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -344,97 +355,106 @@
         android:layout_height="match_parent"
         android:visibility="visible">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="315sp"
+            android:layout_height="200sp"
+            android:src="@drawable/resistor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btnVoltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_marginBottom="44dp"
             android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/montserrat"
             android:text="Voltar"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMostraResistencia" />
 
         <View
             android:id="@+id/btnPrimeiraFaixa"
-            android:layout_width="15dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="76dp"
-            android:layout_marginLeft="76dp"
+            android:layout_width="17sp"
+            android:layout_height="112sp"
+            android:layout_marginRight="190sp"
+            android:layout_marginBottom="75sp"
             android:background="@drawable/rectangle2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.406" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <View
             android:id="@+id/btnSegundaFaixa"
-            android:layout_width="15dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="76dp"
-            android:layout_marginLeft="76dp"
+            android:layout_width="21sp"
+            android:layout_height="80sp"
+            android:layout_marginRight="73sp"
+            android:layout_marginBottom="75sp"
             android:background="@drawable/rectangle2"
-            app:layout_constraintBottom_toBottomOf="@+id/btnPrimeiraFaixa"
-            app:layout_constraintStart_toEndOf="@+id/btnPrimeiraFaixa"
-            app:layout_constraintTop_toTopOf="@+id/btnPrimeiraFaixa"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <View
             android:id="@+id/btnTerceiraFaixa"
-            android:layout_width="15dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_width="21sp"
+            android:layout_height="80sp"
+            android:layout_marginLeft="39sp"
+            android:layout_marginBottom="75sp"
             android:background="@drawable/rectangle2"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSegundaFaixa"
-            app:layout_constraintStart_toEndOf="@+id/btnSegundaFaixa"
-            app:layout_constraintTop_toTopOf="@+id/btnSegundaFaixa"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <View
             android:id="@+id/btnQuartaFaixa"
-            android:layout_width="15dp"
-            android:layout_height="70dp"
+            android:layout_width="17sp"
+            android:layout_height="112sp"
+            android:layout_marginLeft="190sp"
+            android:layout_marginBottom="75sp"
             android:background="@drawable/rectangle2"
-            app:layout_constraintBottom_toBottomOf="@+id/btnTerceiraFaixa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toEndOf="@+id/btnTerceiraFaixa"
-            app:layout_constraintTop_toTopOf="@+id/btnTerceiraFaixa"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="270sp"
             android:fontFamily="@font/montserrat"
             android:text="O valor da resistência é:"
             android:textColor="@color/preto"
             android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSegundaFaixa">
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
         <TextView
+            android:id="@+id/textViewMostraResistencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
             android:fontFamily="@font/montserrat"
             android:text=""
-            android:id="@+id/textViewMostraResistencia"
             android:textColor="@color/preto"
             android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.159">
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
         </TextView>
 
