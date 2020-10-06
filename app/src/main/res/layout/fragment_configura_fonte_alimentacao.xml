@@ -6,76 +6,186 @@
     android:layout_height="match_parent"
     tools:context=".View.ConfiguraFonteAlimentacaoFragment">
 
+    <TextView
+        android:id="@+id/myRectangleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fonte de Alimentação"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:background="@drawable/rectangle"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/viewValorTensaoFontePositiva"
+            android:layout_width="match_parent"
+            android:layout_marginRight="45sp"
+            android:layout_marginLeft="45sp"
+            android:layout_height="100sp"
+            android:background="@drawable/rectangle2"
+            android:layout_marginBottom="415sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/viewValorTensaoFonteNegativa"
+            android:layout_width="match_parent"
+            android:layout_marginRight="45sp"
+            android:layout_marginLeft="45sp"
+            android:layout_height="100sp"
+            android:background="@drawable/rectangle2"
+            android:layout_marginTop="110sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/textViewValorTensaoFonte"
+            android:id="@+id/textViewValorTensaoFontePositivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@android:color/black"
-            android:textSize="45sp"
+            android:textColor="@color/vinho"
+            android:textSize="65sp"
+            android:fontFamily="@font/digital"
+            android:layout_marginBottom="415sp"
+            android:layout_marginRight="115sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.275" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnDecremento"
+        <TextView
+            android:id="@+id/textViewValorTensaoFonteNegativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:text=""
+            android:textColor="@color/vinho"
+            android:textSize="65sp"
+            android:fontFamily="@font/digital"
+            android:layout_marginRight="115sp"
+            android:layout_marginTop="110sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnIncremento"
-            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnIncremento"
+        android:id="@+id/btnDecrementoPositivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        android:fontFamily="@font/montserrat"
+        android:background="@drawable/circlebutton"
+        android:layout_marginBottom="155sp"
+        android:layout_marginRight="175sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDecrementoNegativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="76sp"
-            android:layout_marginRight="76sp"
+            android:text="-"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:fontFamily="@font/montserrat"
+            android:background="@drawable/circlebutton"
+            android:layout_marginTop="375sp"
+            android:layout_marginRight="175sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnIncrementoPositivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circlebutton"
+            android:fontFamily="@font/montserrat"
             android:text="+"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btnDecremento"
+            android:textSize="50sp"
+            android:layout_marginBottom="155sp"
+            android:layout_marginLeft="175sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnDecremento"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnIncrementoNegativo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circlebutton"
+            android:fontFamily="@font/montserrat"
+            android:text="+"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:layout_marginTop="375sp"
+            android:layout_marginLeft="175sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/montserrat"
             android:text="Salvar"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777" />
+            app:layout_constraintTop_toBottomOf="@+id/btnIncrementoNegativo"
+            app:layout_constraintVertical_bias="0.491" />
 
         <TextView
-            android:id="@+id/textViewUnidade"
+        android:id="@+id/textViewUnidadePositiva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="415sp"
+        android:layout_marginLeft="190sp"
+        android:fontFamily="@font/montserrat"
+        android:text="Volts"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/viewValorTensaoFontePositiva"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewUnidadeNegativa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="V"
-            android:textColor="@android:color/black"
-            android:textSize="45sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewValorTensaoFonte"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
-            app:layout_constraintStart_toEndOf="@+id/textViewValorTensaoFonte"
-            app:layout_constraintTop_toTopOf="@+id/textViewValorTensaoFonte"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginLeft="190sp"
+            android:fontFamily="@font/montserrat"
+            android:text="Volts"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="110sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/viewValorTensaoFonteNegativa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
