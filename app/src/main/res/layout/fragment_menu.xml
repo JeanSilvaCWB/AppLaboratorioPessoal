@@ -19,9 +19,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="16sp"
+            android:layout_marginTop="30sp"
             android:layout_gravity="center">
 
             <TextView
@@ -53,25 +53,25 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="10sp">
 
             <TextView
+                android:id="@+id/textoConfiguracao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/montserrat"
+                android:gravity="center"
                 android:text="Configuração"
-                android:id="@+id/textoConfiguracao"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:gravity="center">
+                android:textSize="20sp">
 
             </TextView>
 
             <View
-                android:layout_width="150dp"
-                android:layout_height="2dp"
+                android:layout_width="150sp"
+                android:layout_height="2sp"
                 android:background="#05D36F"
                 android:layout_below="@+id/textoConfiguracao"
                 android:layout_centerHorizontal="true"/>
@@ -92,26 +92,26 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnConfigurarFonteAlimentacao"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="80sp"
+                        android:layout_height="80sp"
                         android:src="@drawable/configurafontealimentacao"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text="     Tensão    "
                         android:textColor="#000000"
@@ -127,26 +127,26 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnGeradorFuncoes"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="70sp"
+                        android:layout_height="70sp"
                         android:src="@drawable/configuracaogeradorfuncoes"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text="Gerador de\n   Funções"
                         android:textColor="#000000"
@@ -161,9 +161,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="0dp">
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="0sp">
 
             <TextView
             android:layout_width="match_parent"
@@ -176,8 +176,8 @@
             android:textSize="20sp"></TextView>
 
             <View
-            android:layout_width="85dp"
-            android:layout_height="2dp"
+            android:layout_width="85sp"
+            android:layout_height="2sp"
             android:background="#05D36F"
             android:layout_below="@+id/textoLeitura"
             android:layout_centerHorizontal="true"/>
@@ -198,8 +198,8 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnVoltimetro"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
                 android:layout_margin="12dp">
 
                 <LinearLayout

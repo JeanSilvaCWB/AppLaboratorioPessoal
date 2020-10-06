@@ -28,6 +28,8 @@ import java.util.TreeMap;
 public class DescubraResistenciaFragment extends Fragment {
     FragmentManager fragmentManager;
     FrameLayout frameLayout;
+    FrameLayout frameInformativo;
+    FrameLayout frameQuartaFaixa;
     ConstraintLayout constraintLayoutResistencia;
     private View rootView;
     private int valorCor = 0;
@@ -37,6 +39,7 @@ public class DescubraResistenciaFragment extends Fragment {
     private int valorTerceiraFaixa;
     private String concatenaValor;
     TextView textViewMostraResistencia;
+    TextView textViewMostraTolerância;
     View btnPrimeiraFaixa;
     View btnSegundaFaixa;
     View btnTerceiraFaixa;
@@ -51,6 +54,14 @@ public class DescubraResistenciaFragment extends Fragment {
     CardView btnVioleta1;
     CardView btnCinza1;
     CardView btnBranco1;
+    CardView btnMarrom4;
+    CardView btnVermelho4;
+    CardView btnVerde4;
+    CardView btnAzul4;
+    CardView btnVioleta4;
+    CardView btnCinza4;
+    CardView btnDourado4;
+    CardView btnPrata4;
     Button btnVoltar;
 
     public DescubraResistenciaFragment() {
@@ -75,8 +86,11 @@ public class DescubraResistenciaFragment extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_descubra_resistencia, container, false);
         frameLayout = (FrameLayout)rootView.findViewById(R.id.framePrimeiraFaixa);
+        frameInformativo = (FrameLayout)rootView.findViewById(R.id.frameInformativo);
+        frameQuartaFaixa = (FrameLayout)rootView.findViewById(R.id.frameQuartaFaixa);
         constraintLayoutResistencia = (ConstraintLayout)rootView.findViewById(R.id.constraintLayoutResistencia);
         textViewMostraResistencia = (TextView)rootView.findViewById(R.id.textViewMostraResistencia);
+        textViewMostraTolerância = (TextView)rootView.findViewById(R.id.textViewMostraTolerância);
         btnPreto1 = (CardView)rootView.findViewById(R.id.btnPreto1);
         btnMarrom1 = (CardView)rootView.findViewById(R.id.btnMarrom1);
         btnVermelho1 = (CardView)rootView.findViewById(R.id.btnVermelho1);
@@ -87,6 +101,14 @@ public class DescubraResistenciaFragment extends Fragment {
         btnVioleta1 = (CardView)rootView.findViewById(R.id.btnVioleta1);
         btnCinza1 = (CardView)rootView.findViewById(R.id.btnCinza1);
         btnBranco1 = (CardView)rootView.findViewById(R.id.btnBranco1);
+        btnMarrom4 = (CardView)rootView.findViewById(R.id.btnMarrom4);
+        btnVermelho4 = (CardView)rootView.findViewById(R.id.btnVermelho4);
+        btnVerde4 = (CardView)rootView.findViewById(R.id.btnVerde4);
+        btnAzul4 = (CardView)rootView.findViewById(R.id.btnAzul4);
+        btnVioleta4 = (CardView)rootView.findViewById(R.id.btnVioleta4);
+        btnCinza4 = (CardView)rootView.findViewById(R.id.btnCinza4);
+        btnDourado4 = (CardView)rootView.findViewById(R.id.btnDourado4);
+        btnPrata4 = (CardView)rootView.findViewById(R.id.btnPrata4);
         btnVoltar = (Button)rootView.findViewById(R.id.btnVoltar);
         fragmentManager = getFragmentManager();
         btnPrimeiraFaixa = (View) rootView.findViewById(R.id.btnPrimeiraFaixa);
@@ -109,6 +131,16 @@ public class DescubraResistenciaFragment extends Fragment {
         btnVioleta1.setOnClickListener(onClick);
         btnCinza1.setOnClickListener(onClick);
         btnBranco1.setOnClickListener(onClick);
+        btnMarrom4.setOnClickListener(onClick);
+        btnVermelho4.setOnClickListener(onClick);
+        btnVerde4.setOnClickListener(onClick);
+        btnAzul4.setOnClickListener(onClick);
+        btnVioleta4.setOnClickListener(onClick);
+        btnCinza4.setOnClickListener(onClick);
+        btnDourado4.setOnClickListener(onClick);
+        btnPrata4.setOnClickListener(onClick);
+        btnVoltar.setOnClickListener(onClick);
+
         return rootView;
     }
 
@@ -117,22 +149,36 @@ public class DescubraResistenciaFragment extends Fragment {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btnPrimeiraFaixa:
+                    frameInformativo.setVisibility(View.INVISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
                     constraintLayoutResistencia.setVisibility(View.INVISIBLE);
                     frameLayout.setVisibility(View.VISIBLE);
                     idFaixa = 1;
                     break;
                 case R.id.btnSegundaFaixa:
+                    frameInformativo.setVisibility(View.INVISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
                     constraintLayoutResistencia.setVisibility(View.INVISIBLE);
                     frameLayout.setVisibility(View.VISIBLE);
                     idFaixa = 2;
                     break;
                 case R.id.btnTerceiraFaixa:
+                    frameInformativo.setVisibility(View.INVISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
                     constraintLayoutResistencia.setVisibility(View.INVISIBLE);
                     frameLayout.setVisibility(View.VISIBLE);
                     idFaixa = 3;
                     break;
+                case R.id.btnQuartaFaixa:
+                    frameInformativo.setVisibility(View.INVISIBLE);
+                    frameLayout.setVisibility(View.INVISIBLE);
+                    frameQuartaFaixa.setVisibility(View.VISIBLE);
+                    constraintLayoutResistencia.setVisibility(View.INVISIBLE);
+                    idFaixa = 4;
+                    break;
                 case R.id.btnPreto1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.preto));
@@ -152,6 +198,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnMarrom1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.marrom));
@@ -171,6 +218,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnVermelho1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.vermelho));
@@ -190,6 +238,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnLaranja1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.laranja));
@@ -209,6 +258,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnAmarelo1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.amarelo));
@@ -228,6 +278,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnVerde1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.verde));
@@ -247,6 +298,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnAzul1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.azul));
@@ -266,6 +318,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnVioleta1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.violeta));
@@ -285,6 +338,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnCinza1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.cinza));
@@ -302,6 +356,7 @@ public class DescubraResistenciaFragment extends Fragment {
                     break;
                 case R.id.btnBranco1:
                     constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
                     frameLayout.setVisibility(View.INVISIBLE);
                     if(idFaixa == 1){
                         btnPrimeiraFaixa.setBackgroundColor(getResources().getColor(R.color.branco));
@@ -316,6 +371,62 @@ public class DescubraResistenciaFragment extends Fragment {
                     if(idFaixa == 3){
 
                     }
+                    break;
+                case R.id.btnMarrom4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.marrom));
+                    mostrarTolerancia("± 1%");
+                    break;
+                case R.id.btnVermelho4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.vermelho));
+                    mostrarTolerancia("± 2%");
+                    break;
+                case R.id.btnVerde4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.verde));
+                    mostrarTolerancia("± 0,5%");
+                    break;
+                case R.id.btnAzul4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.azul));
+                    mostrarTolerancia("± 0,25%");
+                    break;
+                case R.id.btnVioleta4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.violeta));
+                    mostrarTolerancia("± 0,1%");
+                    break;
+                case R.id.btnCinza4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.cinza));
+                    mostrarTolerancia("± 0,05%");
+                    break;
+                case R.id.btnDourado4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.dourado));
+                    mostrarTolerancia("± 5%");
+                    break;
+                case R.id.btnPrata4:
+                    constraintLayoutResistencia.setVisibility(View.VISIBLE);
+                    frameInformativo.setVisibility(View.VISIBLE);
+                    frameQuartaFaixa.setVisibility(View.INVISIBLE);
+                    btnQuartaFaixa.setBackgroundColor(getResources().getColor(R.color.prata));
+                    mostrarTolerancia("± 10%");
                     break;
                 case R.id.btnVoltar:
                     fragmentManager.popBackStack();
@@ -344,6 +455,10 @@ public class DescubraResistenciaFragment extends Fragment {
         long resultado = soma * fatorMultiplicador;
         String valorfinal = format(resultado);
         textViewMostraResistencia.setText(valorfinal);
+    }
+
+    public void mostrarTolerancia(String valorTolerancia){
+        textViewMostraTolerância.setText(valorTolerancia);
     }
 
     private static final NavigableMap<Long, String> suffixes = new TreeMap<>();

@@ -7,26 +7,313 @@
     tools:context=".View.DescubraResistenciaFragment">
 
     <TextView
-        android:id="@+id/myRectangleView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle"
-        android:fontFamily="@font/montserrat"
-        android:gravity="center_horizontal"
-        android:text="Descubra a resistência"
-        android:textColor="@android:color/black"
-        android:textSize="25sp" />
-
-    <TextView
         android:id="@+id/myRectangleView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voltímetro"
+        android:text="Descubra a resistência"
         android:fontFamily="@font/montserrat"
         android:textColor="@android:color/black"
         android:gravity="center_horizontal"
         android:textSize="25sp"
         android:background="@drawable/rectangle"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="200sp"
+        android:background="@color/branco"
+        android:id="@+id/frameInformativo"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clique nas faixas do resistor e selecione a cor para descobrir o valor da resistência"
+            android:textColor="@color/preto"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/montserrat"
+            android:textSize="20sp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp">
+        </TextView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="350sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/frameQuartaFaixa"
+        android:visibility="invisible"
+        android:background="@color/fundo">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="4"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="45sp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/btnMarrom4"
+            app:cardElevation="6sp"
+            app:cardCornerRadius="12sp"
+            android:layout_margin="12sp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="16sp"
+                android:background="@color/marrom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12sp"
+                    android:fontFamily="@font/montserrat"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnVermelho4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/vermelho"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnVerde4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/verde"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnAzul4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/azul"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnVioleta4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/violeta"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnCinza4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/cinza"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnDourado4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/dourado"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45sp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/btnPrata4"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16sp"
+                    android:background="@color/prata"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12sp"
+                        android:fontFamily="@font/montserrat"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="350sp"
@@ -52,7 +339,8 @@
                 android:id="@+id/btnPreto1"
                 app:cardElevation="6sp"
                 app:cardCornerRadius="12sp"
-                android:layout_margin="12sp">
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,22 +369,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnMarrom1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/marrom"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -112,22 +401,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnVermelho1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/vermelho"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -142,22 +432,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnLaranja1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/laranja"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -172,22 +463,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnAmarelo1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/amarelo"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -202,22 +494,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnVerde1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/verde"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -232,22 +525,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnAzul1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/azul"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -262,22 +556,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnVioleta1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/violeta"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -292,22 +587,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnCinza1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/cinza"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -322,22 +618,23 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:id="@+id/btnBranco1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
+                    android:padding="16sp"
                     android:background="@color/branco"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="12sp"
                         android:fontFamily="@font/montserrat"
                         android:text=""
                         android:textColor="#000000"
@@ -360,6 +657,7 @@
             android:layout_width="315sp"
             android:layout_height="200sp"
             android:src="@drawable/resistor"
+            android:layout_marginBottom="45sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -431,7 +729,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="270sp"
+            android:layout_marginTop="220sp"
             android:fontFamily="@font/montserrat"
             android:text="O valor da resistência é:"
             android:textColor="@color/preto"
@@ -447,16 +745,29 @@
             android:id="@+id/textViewMostraResistencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="15sp"
             android:fontFamily="@font/montserrat"
             android:text=""
             android:textColor="@color/preto"
             android:textSize="40sp"
+            android:layout_marginRight="115sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
-
         </TextView>
+
+        <TextView
+            android:id="@+id/textViewMostraTolerância"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text=""
+            android:textColor="@color/preto"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewMostraResistencia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewMostraResistencia"
+            app:layout_constraintTop_toTopOf="@+id/textViewMostraResistencia"></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
