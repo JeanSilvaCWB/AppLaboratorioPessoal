@@ -25,6 +25,7 @@ public class MenuFragment extends Fragment implements BluetoothListener {
     FragmentTransaction fragmentTransaction;
     private View rootView;
     CardView btnConfigurarFonteAlimentacao;
+    CardView btnGeradorFuncoes;
     CardView btnVoltimetro;
     CardView btnOhmimetro;
     CardView btnOsciloscopio;
@@ -54,6 +55,7 @@ public class MenuFragment extends Fragment implements BluetoothListener {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_menu, container, false);
         btnConfigurarFonteAlimentacao = (CardView) rootView.findViewById(R.id.btnConfigurarFonteAlimentacao);
+        btnGeradorFuncoes = (CardView) rootView.findViewById(R.id.btnGeradorFuncoes);
         btnVoltimetro = (CardView) rootView.findViewById(R.id.btnVoltimetro);
         btnOhmimetro = (CardView) rootView.findViewById(R.id.btnOhmimetro);
         btnOsciloscopio = (CardView) rootView.findViewById(R.id.btnOsciloscopio);
@@ -62,6 +64,7 @@ public class MenuFragment extends Fragment implements BluetoothListener {
         fragmentTransaction = fragmentManager.beginTransaction();
 
         btnConfigurarFonteAlimentacao.setOnClickListener(onClick);
+        btnGeradorFuncoes.setOnClickListener(onClick);
         btnVoltimetro.setOnClickListener(onClick);
         btnOhmimetro.setOnClickListener(onClick);
         btnOsciloscopio.setOnClickListener(onClick);
@@ -75,6 +78,11 @@ public class MenuFragment extends Fragment implements BluetoothListener {
             switch (view.getId()) {
                 case R.id.btnConfigurarFonteAlimentacao:
                     fragmentTransaction.replace(R.id.fragment_container, ConfiguraFonteAlimentacaoFragment.newInstance(bluetoothConnectionActivity));
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    break;
+                case R.id.btnGeradorFuncoes:
+                    fragmentTransaction.replace(R.id.fragment_container, ConfiguraGeradorFuncoesFragment.newInstance(bluetoothConnectionActivity));
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                     break;

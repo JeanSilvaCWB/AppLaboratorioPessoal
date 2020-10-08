@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.ConfiguraFonteAlimentacaoFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.ConfiguraGeradorFuncoesFragment">
 
     <TextView
         android:id="@+id/myRectangleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fonte de Alimentação"
+        android:text="Gerador de Funções"
         android:fontFamily="@font/montserrat"
         android:textColor="@android:color/black"
         android:gravity="center_horizontal"
@@ -26,9 +26,9 @@
             android:layout_width="match_parent"
             android:layout_marginRight="45sp"
             android:layout_marginLeft="45sp"
-            android:layout_height="100sp"
+            android:layout_height="70sp"
             android:background="@drawable/rectangle2"
-            android:layout_marginBottom="415sp"
+            android:layout_marginBottom="455sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,25 +37,27 @@
         <View
             android:id="@+id/viewValorTensaoFonteNegativa"
             android:layout_width="match_parent"
-            android:layout_marginRight="45sp"
+            android:layout_height="70sp"
             android:layout_marginLeft="45sp"
-            android:layout_height="100sp"
+            android:layout_marginBottom="40sp"
+            android:layout_marginRight="45sp"
             android:background="@drawable/rectangle2"
-            android:layout_marginTop="70sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.497" />
 
         <TextView
-            android:id="@+id/textViewValorTensaoFontePositivo"
+            android:id="@+id/textViewValorFrequencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/vinho"
+            android:textColor="@color/azul"
             android:textSize="65sp"
             android:fontFamily="@font/digital"
-            android:layout_marginBottom="415sp"
+            android:layout_marginBottom="455sp"
             android:layout_marginRight="115sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +65,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewValorTensaoFonteNegativo"
+            android:id="@+id/textViewValorTensaoGerador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -71,30 +73,14 @@
             android:textSize="65sp"
             android:fontFamily="@font/digital"
             android:layout_marginRight="115sp"
-            android:layout_marginTop="70sp"
+            android:layout_marginBottom="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-        android:id="@+id/btnDecrementoPositivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:textColor="@android:color/black"
-        android:textSize="50sp"
-        android:fontFamily="@font/montserrat"
-        android:background="@drawable/circlebutton"
-        android:layout_marginBottom="195sp"
-        android:layout_marginRight="175sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnDecrementoNegativo"
+            android:id="@+id/btnDecrementoFrequencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
@@ -102,7 +88,7 @@
             android:textSize="50sp"
             android:fontFamily="@font/montserrat"
             android:background="@drawable/circlebutton"
-            android:layout_marginTop="335sp"
+            android:layout_marginBottom="265sp"
             android:layout_marginRight="175sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +96,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnIncrementoPositivo"
+            android:id="@+id/btnDecrementoTensaoGerador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:fontFamily="@font/montserrat"
+            android:background="@drawable/circlebutton"
+            android:layout_marginTop="140sp"
+            android:layout_marginRight="175sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnIncrementoFrequencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circlebutton"
@@ -118,7 +120,7 @@
             android:text="+"
             android:textColor="@android:color/black"
             android:textSize="50sp"
-            android:layout_marginBottom="195sp"
+            android:layout_marginBottom="265sp"
             android:layout_marginLeft="175sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +128,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnIncrementoNegativo"
+            android:id="@+id/btnIncrementoTensaoGerador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circlebutton"
@@ -134,7 +136,7 @@
             android:text="+"
             android:textColor="@android:color/black"
             android:textSize="50sp"
-            android:layout_marginTop="335sp"
+            android:layout_marginTop="140sp"
             android:layout_marginLeft="175sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -146,6 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/roundedbutton"
             android:fontFamily="@font/montserrat"
             android:text="Salvar"
@@ -153,24 +156,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnIncrementoNegativo"
-            app:layout_constraintVertical_bias="0.491" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-        android:id="@+id/textViewUnidadePositiva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="415sp"
-        android:layout_marginLeft="190sp"
-        android:fontFamily="@font/montserrat"
-        android:text="Volts"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/viewValorTensaoFontePositiva"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textViewUnidadePositiva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="455sp"
+            android:layout_marginLeft="190sp"
+            android:fontFamily="@font/montserrat"
+            android:text="Hz"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/viewValorTensaoFontePositiva"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewUnidadeNegativa"
@@ -181,11 +182,46 @@
             android:text="Volts"
             android:textColor="@android:color/white"
             android:textSize="40sp"
-            android:layout_marginTop="70sp"
+            android:layout_marginBottom="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/viewValorTensaoFonteNegativa"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/btnSalvar"
+            android:background="@color/branco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnIncrementoTensaoGerador">
+
+            <RadioButton
+                android:id="@+id/btnOndaQuadrada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Quadrada"
+                android:fontFamily="@font/montserrat"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/btnOndaSenoidal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Senoidal"
+                android:fontFamily="@font/montserrat"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/btnOndaTriangular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Triangular"
+                android:fontFamily="@font/montserrat"
+                android:textSize="20sp"/>
+
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

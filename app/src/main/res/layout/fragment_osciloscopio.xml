@@ -5,33 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.OsciloscopioFragment">
-
+    <TextView
+        android:id="@+id/myRectangleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Osciloscópio"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:background="@drawable/rectangle"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <Button
             android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Salvar"
+            android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/montserrat"
+            android:text="Voltar"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.896" />
+            app:layout_constraintTop_toBottomOf="@+id/graficoOsciloscopio" />
 
         <com.jjoe64.graphview.GraphView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="160dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnSalvar"
+            android:id="@+id/graficoOsciloscopio"
+            android:layout_width="325sp"
+            android:layout_height="430sp"
+            android:layout_marginBottom="50sp"
+            android:background="@color/branco"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/graficoOsciloscopio"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

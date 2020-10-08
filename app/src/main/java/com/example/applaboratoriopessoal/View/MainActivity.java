@@ -201,6 +201,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 .setNegativeButton("Não", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+                        getSupportFragmentManager().beginTransaction()
+                                .add(R.id.fragment_container, DescubraResistenciaFragment.newInstance())
+                                .addToBackStack("")
+                                .commit();
                     }
                 });
         AlertDialog alert = builder.create();

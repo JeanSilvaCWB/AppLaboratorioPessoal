@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.R;
 
 import java.nio.charset.Charset;
+import java.text.DecimalFormat;
 
 public class ConfiguraFonteAlimentacaoFragment extends Fragment implements BluetoothListener {
     BluetoothConnectionActivity bluetoothConnectionActivity;
@@ -25,6 +27,9 @@ public class ConfiguraFonteAlimentacaoFragment extends Fragment implements Bluet
     private View rootView;
     private double valorTensaoPositiva;
     private double valorTensaoNegativa;
+    private int stepTensaoPositiva;
+    private int stepTensaoNegativa;
+    boolean fechaThread = false;
     Button btnDecrementoPositivo;
     Button btnDecrementoNegativo;
     Button btnIncrementoPositivo;
@@ -49,6 +54,9 @@ public class ConfiguraFonteAlimentacaoFragment extends Fragment implements Bluet
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bluetoothConnectionActivity.setBluetoothListener(this);
+        String chaveGeradorFuncoes = "FONTE";
+        byte[] bytes = chaveGeradorFuncoes.getBytes(Charset.defaultCharset());
+        bluetoothConnectionActivity.write(bytes);
     }
 
     @Override
@@ -78,31 +86,35 @@ public class ConfiguraFonteAlimentacaoFragment extends Fragment implements Bluet
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btnDecrementoPositivo:
-                    if(valorTensaoPositiva > 0){
-                        valorTensaoPositiva = valorTensaoPositiva - 0.14;
+                    if(stepTensaoPositiva > 0){
+                        stepTensaoPositiva--;
+                        valorTensaoPositiva = valorTensaoPositiva - 0.2375;
                         textViewValorTensaoFontePositivo.setText(String.format("%.2f", valorTensaoPositiva));
                     } else {}
                     break;
                 case R.id.btnDecrementoNegativo:
-                    if(valorTensaoNegativa >= -15){
-                        valorTensaoNegativa = valorTensaoNegativa - 0.14;
+                    if(stepTensaoNegativa > 0){
+                        stepTensaoNegativa--;
+                        valorTensaoNegativa = valorTensaoNegativa + 0.2375;
                         textViewValorTensaoFonteNegativo.setText(String.format("%.2f", valorTensaoNegativa));
                     } else {}
                     break;
                 case R.id.btnIncrementoPositivo:
-                    if(valorTensaoPositiva <= 15){
-                        valorTensaoPositiva = valorTensaoPositiva + 0.14;
+                    if(stepTensaoPositiva < 20){
+                        stepTensaoPositiva++;
+                        valorTensaoPositiva = valorTensaoPositiva + 0.2375;
                         textViewValorTensaoFontePositivo.setText(String.format("%.2f", valorTensaoPositiva));
                     } else {}
                     break;
                 case R.id.btnIncrementoNegativo:
-                    if(valorTensaoNegativa <= 0){
-                        valorTensaoNegativa = valorTensaoNegativa + 0.14;
+                    if(stepTensaoNegativa < 20){
+                        stepTensaoNegativa++;
+                        valorTensaoNegativa = valorTensaoNegativa - 0.2375;
                         textViewValorTensaoFonteNegativo.setText(String.format("%.2f", valorTensaoNegativa));
                     } else {}
                     break;
                 case R.id.btnSalvar:
-                    String valorFonte = String.valueOf(valorTensaoPositiva) + "." + String.valueOf(valorTensaoNegativa);
+                    String valorFonte = "FONTE*" + String.valueOf(stepTensaoPositiva) + "*" + String.valueOf(stepTensaoNegativa);
                     byte[] bytes = valorFonte.getBytes(Charset.defaultCharset());
                     bluetoothConnectionActivity.write(bytes);
                     fragmentManager.popBackStack();
@@ -114,6 +126,24 @@ public class ConfiguraFonteAlimentacaoFragment extends Fragment implements Bluet
     };
 
     @Override
-    public void setTextOnTextView(String textoInserido) {
+    public void setTextOnTextView(String textoRecebido) {
+        Log.d("FonteFragment", textoRecebido);
+        String[] separaValor1 = textoRecebido.split("\\*");
+        stepTensaoPositiva = Integer.valueOf(separaValor1[0]);
+        stepTensaoNegativa = Integer.valueOf(separaValor1[1]);
+        valorTensaoPositiva = (stepTensaoPositiva * 0.2375) + 1.25;
+        valorTensaoNegativa = 0 - (stepTensaoNegativa * 0.2375) - 1.25;
+
+        if (getActivity() != null || fechaThread == true){
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textViewValorTensaoFontePositivo.setText(String.format("%.2f",valorTensaoPositiva));
+                    textViewValorTensaoFonteNegativo.setText(String.format("%.2f",valorTensaoNegativa));
+                    fechaThread = true;
+                    onStop();
+                }
+            });
+        }
     }
 }

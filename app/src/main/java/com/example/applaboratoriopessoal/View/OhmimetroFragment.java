@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.R;
 
+import java.nio.charset.Charset;
+
 public class OhmimetroFragment extends Fragment implements BluetoothListener {
     BluetoothConnectionActivity bluetoothConnectionActivity;
     FragmentManager fragmentManager;
@@ -38,6 +40,9 @@ public class OhmimetroFragment extends Fragment implements BluetoothListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bluetoothConnectionActivity.setBluetoothListener(this);
+        String chaveOhmimetro = "OHMIMETRO";
+        byte[] bytes = chaveOhmimetro.getBytes(Charset.defaultCharset());
+        bluetoothConnectionActivity.write(bytes);
     }
 
     @Override

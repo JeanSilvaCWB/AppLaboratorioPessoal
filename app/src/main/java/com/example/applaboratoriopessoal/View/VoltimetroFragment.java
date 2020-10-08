@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.applaboratoriopessoal.Listener.BluetoothListener;
 import com.example.applaboratoriopessoal.R;
 
+import java.nio.charset.Charset;
+
 public class VoltimetroFragment extends Fragment implements BluetoothListener {
     BluetoothConnectionActivity bluetoothConnectionActivity;
     FragmentManager fragmentManager;
@@ -40,6 +42,9 @@ public class VoltimetroFragment extends Fragment implements BluetoothListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bluetoothConnectionActivity.setBluetoothListener(this);
+        String chaveVoltimetro = "VOLTIMETRO";
+        byte[] bytes = chaveVoltimetro.getBytes(Charset.defaultCharset());
+        bluetoothConnectionActivity.write(bytes);
     }
 
     @Override
@@ -76,10 +81,9 @@ public class VoltimetroFragment extends Fragment implements BluetoothListener {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    textViewMostraTensaoFragment.setText("+" + textoInseridoVoltimetro + ",20");
+                    textViewMostraTensaoFragment.setText(textoInseridoVoltimetro);
                 }
             });
         }
-
     }
 }
